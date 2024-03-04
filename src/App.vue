@@ -11,11 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive } from 'vue'
 
 const font = reactive({
   // color: 'rgba(255, 255, 255, .5)',
-});
+})
 </script>
 
-<style lang="scss" scoped></style>
+<!-- <style lang="scss" scoped></style> -->

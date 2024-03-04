@@ -69,27 +69,27 @@ import {
   Menu as IconMenu,
   Location,
   Setting,
-} from "@element-plus/icons-vue";
-import { ref, watch } from "vue";
-import type { Ref } from "vue";
-import { useRoute } from "vue-router";
+} from '@element-plus/icons-vue'
+import { ref, watch } from 'vue'
+import type { Ref } from 'vue'
+import { useRoute } from 'vue-router'
 
-const defaultActive: Ref<string> = ref("/");
-const router = useRoute();
+const defaultActive: Ref<string> = ref('/')
+const router = useRoute()
 
 watch(
   () => router.path,
   (path: string) => {
-    defaultActive.value = path;
-  },
-);
+    defaultActive.value = path
+  }
+)
 </script>
 
 <style>
 .el-menu {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: #e4e7ed;
-  box-sizing: border-box;
 }
 </style>

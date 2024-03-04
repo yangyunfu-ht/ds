@@ -25,79 +25,79 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, h } from "vue";
-import type { Ref } from "vue";
-import { ElMessage, ElNotification } from "element-plus";
+import { reactive, ref, h } from 'vue'
+import type { Ref } from 'vue'
+import { ElMessage, ElNotification } from 'element-plus'
 
 interface ButtonConfig1 {
-  content: string;
+  content: string
   type:
-    | ""
-    | "default"
-    | "primary"
-    | "success"
-    | "info"
-    | "warning"
-    | "danger"
-    | "text";
+    | ''
+    | 'default'
+    | 'primary'
+    | 'success'
+    | 'info'
+    | 'warning'
+    | 'danger'
+    | 'text'
 }
 
 const ButtonConfig: Array<ButtonConfig1> = reactive([
   {
-    type: "",
-    content: "Default",
+    type: '',
+    content: 'Default',
   },
   {
-    type: "primary",
-    content: "Primary",
+    type: 'primary',
+    content: 'Primary',
   },
   {
-    type: "success",
-    content: "Success",
+    type: 'success',
+    content: 'Success',
   },
   {
-    type: "info",
-    content: "Info",
+    type: 'info',
+    content: 'Info',
   },
   {
-    type: "warning",
-    content: "Warning",
+    type: 'warning',
+    content: 'Warning',
   },
   {
-    type: "danger",
-    content: "Danger",
+    type: 'danger',
+    content: 'Danger',
   },
-]);
+])
 
 interface MessageConfig {
-  label: string;
-  value: number;
+  label: string
+  value: number
 }
 const options: Array<MessageConfig> = reactive([
   {
-    label: "消息提示",
+    label: '消息提示',
     value: 1,
   },
   {
-    label: "消息通知",
+    label: '消息通知',
     value: 2,
   },
-]);
+])
 
-const value: Ref<number> = ref(1);
+const value: Ref<number> = ref(1)
 
 const handleClickButton = (type: string, index: number) => {
   value.value === 1
     ? ElMessage(`点击了第${index + 1}个按钮`)
     : ElNotification({
-        title: "提示",
+        title: '提示',
         message: h(
-          "span",
-          { style: "color: green" },
-          `点击了第${index + 1}个按钮`,
+          'span',
+          { style: 'color: green' },
+          `点击了第${index + 1}个按钮`
         ),
-      });
-};
+      })
+}
 </script>
 
-<style lang="scss" scoped></style>
+<!-- <style lang="scss" scoped></style> -->

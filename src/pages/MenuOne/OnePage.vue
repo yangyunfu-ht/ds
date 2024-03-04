@@ -22,49 +22,49 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue'
 
 interface User {
-  date: string;
-  name: string;
-  address: string;
+  date: string
+  name: string
+  address: string
 }
 
-const search = ref("");
+const search = ref('')
 const filterTableData = computed(() =>
   tableData.filter(
-    (data) =>
+    data =>
       !search.value ||
-      data.name.toLowerCase().includes(search.value.toLowerCase()),
-  ),
-);
+      data.name.toLowerCase().includes(search.value.toLowerCase())
+  )
+)
 const handleEdit = (index: number, row: User) => {
-  console.log(index, row);
-};
+  console.log(index, row)
+}
 const handleDelete = (index: number, row: User) => {
-  console.log(index, row);
-};
+  console.log(index, row)
+}
 
 const tableData: User[] = [
   {
-    date: "2016-05-03",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
   },
   {
-    date: "2016-05-02",
-    name: "John",
-    address: "No. 189, Grove St, Los Angeles",
+    date: '2016-05-02',
+    name: 'John',
+    address: 'No. 189, Grove St, Los Angeles',
   },
   {
-    date: "2016-05-04",
-    name: "Morgan",
-    address: "No. 189, Grove St, Los Angeles",
+    date: '2016-05-04',
+    name: 'Morgan',
+    address: 'No. 189, Grove St, Los Angeles',
   },
   {
-    date: "2016-05-01",
-    name: "Jessy",
-    address: "No. 189, Grove St, Los Angeles",
+    date: '2016-05-01',
+    name: 'Jessy',
+    address: 'No. 189, Grove St, Los Angeles',
   },
-];
+]
 </script>

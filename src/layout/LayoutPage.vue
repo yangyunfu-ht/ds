@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import LayoutAside from "./components/LayoutAside.vue";
+import LayoutAside from './components/LayoutAside.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -28,13 +28,13 @@ import LayoutAside from "./components/LayoutAside.vue";
     height: 100%;
 
     .section {
-      -el-main-padding: 20px;
+      box-sizing: border-box;
       display: block;
       flex: 1;
       flex-basis: auto;
-      overflow: auto;
-      box-sizing: border-box;
       padding: var(--el-main-padding);
+      overflow: auto;
+      -el-main-padding: 20px;
 
       .main-content {
         height: calc(100% - 50px);
