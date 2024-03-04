@@ -2,7 +2,7 @@
   <el-watermark
     :content="['得胜物流']"
     :zIndex="10000"
-    :gap="[200, 200]"
+    :gap="[250, 250]"
     :font="font"
     style="height: 100%"
   >
