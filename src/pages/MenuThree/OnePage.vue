@@ -1,5 +1,5 @@
 <template>
-  <div>3-1</div>
+  <div class="page">3-1</div>
 </template>
 
 <script setup lang="ts"></script>

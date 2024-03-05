@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="page">
     <el-button
       v-for="({ type, content }, index) of ButtonConfig"
       :key="index"
