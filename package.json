@@ -7,8 +7,7 @@
     "lint:eslint": "eslint \"src/**/*.{vue,ts,js,tsx,jsx,html}\" --fix",
     "lint:prettier": "prettier --write \"**/*.{js,ts,jsx,tsx,cjs,json,css,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint  \"**/*.{css,scss,vue,html}\" --fix",
-    "pre-commit": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint",
-    "commitlint": "commitlint --config commitlint.config.cjs -e -V",
+    "pre-commit": "pnpm run lint:eslint && pnpm run lint:prettier && pnpm run lint:stylelint",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
@@ -26,6 +25,8 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@types/node": "^20.11.24",
     "@types/nprogress": "^0.2.3",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
