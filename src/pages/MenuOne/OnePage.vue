@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="filterTableData" style="width: 100%">
+  <el-table border stripe :data="filterTableData" style="width: 100%;height: 100%;">
     <el-table-column label="Date" prop="date" />
     <el-table-column label="Name" prop="name" />
     <el-table-column align="right">

@@ -4,7 +4,7 @@
     v-watermark="watermarkConfig"
     style="width: 300px; height: 300px; background-color: #fff"
   >
-    4-2
+    
   </div>
 </template>
 
