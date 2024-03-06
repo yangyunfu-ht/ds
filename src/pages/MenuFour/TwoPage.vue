@@ -3,9 +3,7 @@
     class="page"
     v-watermark="watermarkConfig"
     style="width: 300px; height: 300px; background-color: #fff"
-  >
-    
-  </div>
+  ></div>
 </template>
 
 <script setup lang="ts">
