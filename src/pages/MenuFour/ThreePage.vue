@@ -29,7 +29,7 @@
           </el-col>
         </el-row>
         <el-row align="middle">
-          <span style=" margin-left: 40px;font-size: 20px">开票: 东聚k</span>
+          <span style="margin-left: 40px; font-size: 20px">开票: 东聚k</span>
         </el-row>
         <el-row>
           <el-col :span="12"></el-col>
@@ -65,7 +65,7 @@ const noWDate: string = dayjs(new Date()).format('YY-MM-DD HH:mm:ss')
 const handleClickPrintImg = () => {
   // eslint-disable-next-line no-undef
   const lodop = getLodop()
-  lodop.SET_PRINTER_INDEX(1);
+  lodop.SET_PRINTER_INDEX(1)
 
   // 打开打印窗口
   lodop.PRINT_INIT('打印图片')
@@ -85,7 +85,7 @@ const printImage = () => {
       img.src = result
       // eslint-disable-next-line no-undef
       var lodop = getLodop()
-      lodop.SET_PRINTER_INDEX(2);
+      lodop.SET_PRINTER_INDEX(2)
 
       // 打开打印窗口
       lodop.PRINT_INIT('打印图片')
@@ -100,11 +100,10 @@ const printImage = () => {
     })
 }
 
-
 const handleGetPrinter = () => {
-	const lodop = getLodop()
-	const printCounters: number = lodop.GET_PRINTER_COUNT()
-	console.log(printCounters)
+  const lodop = getLodop()
+  const printCounters: number = lodop.GET_PRINTER_COUNT()
+  console.log(printCounters)
 }
 </script>
 
