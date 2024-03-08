@@ -6,15 +6,9 @@ body,
   background-color: #e4e7ed;
 }
 
-.page {
-  height: 400px;
-  padding: 12px;
-  background-color: #fff;
-}
-
-slide-enter-active,
+.slide-enter-active,
 .slide-leave-active {
-  transition: all 0.75s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-enter-to {

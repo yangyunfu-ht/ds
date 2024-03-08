@@ -23,33 +23,35 @@
         <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
 
         <template #footer>Footer content</template>
-      </el-card></el-col
-    >
+      </el-card>
+    </el-col>
   </el-row>
 
-  <div class="page" style="margin: 20px 0">
-    <el-button
-      v-for="({ type, content }, index) of ButtonConfig"
-      :key="index"
-      :type="type"
-      @click="handleClickButton(type, index)"
-      >{{ content }}</el-button
-    >
-    <el-select
-      v-model="value"
-      placeholder="请选择提示类型"
-      size="large"
-      clearable
-      style="width: 240px; margin-left: 100px"
-    >
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
-  </div>
+  <el-card style="margin: 20px 0">
+    <div class="page">
+      <el-button
+        v-for="({ type, content }, index) of ButtonConfig"
+        :key="index"
+        :type="type"
+        @click="handleClickButton(type, index)"
+        >{{ content }}</el-button
+      >
+      <el-select
+        v-model="value"
+        placeholder="请选择提示类型"
+        size="large"
+        clearable
+        style="width: 240px; margin-left: 100px"
+      >
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+    </div>
+  </el-card>
 
   <el-card>
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>

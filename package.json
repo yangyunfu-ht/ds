@@ -16,6 +16,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "axios": "^1.6.7",
+    "dayjs": "^1.11.10",
+    "dom-to-image": "^2.6.0",
     "element-plus": "^2.6.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
@@ -27,6 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
+    "@types/dom-to-image": "^2.6.7",
     "@types/node": "^20.11.24",
     "@types/nprogress": "^0.2.3",
     "@typescript-eslint/eslint-plugin": "^7.1.0",

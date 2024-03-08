@@ -87,6 +87,16 @@ const routes: Array<RouteRecordRaw> = [
         name: '水印指令',
         component: () => import('@/pages/MenuFour/TwoPage.vue'),
       },
+      {
+        path: '/4-3',
+        name: '打印',
+        component: () => import('@/pages/MenuFour/ThreePage.vue'),
+      },
+      {
+        path: '/4-4',
+        name: '打印图片',
+        component: () => import('@/pages/MenuFour/FourPage.vue'),
+      },
     ],
   },
 ]

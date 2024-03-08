@@ -61,6 +61,8 @@
       </template>
       <el-menu-item index="/4">加载</el-menu-item>
       <el-menu-item index="/4-2">水印指令</el-menu-item>
+      <el-menu-item index="/4-3">打印</el-menu-item>
+      <el-menu-item index="/4-4">打印设备</el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>

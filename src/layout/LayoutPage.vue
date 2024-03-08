@@ -11,11 +11,7 @@
             src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
         /></el-header>
         <section class="main-content">
-          <router-view v-slot="{ Component }">
-            <transition name="">
-              <component :is="Component" />
-            </transition>
-          </router-view>
+          <router-view></router-view>
         </section>
       </section>
     </el-container>

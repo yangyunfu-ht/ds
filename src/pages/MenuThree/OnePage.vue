@@ -24,16 +24,3 @@ import { Ref, ref } from 'vue'
 
 const tabPosition: Ref<'left' | 'top' | 'bottom' | 'right'> = ref('left')
 </script>
-<style lang="scss" scoped>
-// .demo-tabs > .el-tabs__content {
-//   padding: 32px;
-//   font-size: 32px;
-//   font-weight: 600;
-//   color: #6b778c;
-// }
-
-// .el-tabs--right .el-tabs__content,
-// .el-tabs--left .el-tabs__content {
-//   height: 100%;
-// }
-</style>
