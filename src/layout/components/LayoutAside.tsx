@@ -2,13 +2,13 @@ import { defineComponent } from 'vue'
 // import UseIcon from '@/components/UseIcon.tsx'
 import { routes } from '@/utils/MenuData.ts'
 import { reactive } from 'vue'
-import { RouteRecordRaw } from 'vue-router'
+import type { MenuItem } from '@/utils/MenuData.ts'
 
 export default defineComponent({
   setup() {
     const menus = reactive(routes)
 
-    const renderMenu = (items: Array<RouteRecordRaw>) => {
+    const renderMenu = (items: Array<MenuItem>) => {
       return items.map((item, index: number) =>
         item.children ? (
           <el-sub-menu

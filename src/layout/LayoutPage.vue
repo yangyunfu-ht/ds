@@ -4,7 +4,9 @@
       <LayoutAside></LayoutAside>
     </aside>
     <main class="layout-main">
-      <header class="layout-main-header"></header>
+      <header class="layout-main-header">
+				<LayoutHeader></LayoutHeader>
+			</header>
       <main style="margin: 12px">
         <router-view></router-view>
       </main>
@@ -14,6 +16,7 @@
 
 <script setup lang="ts">
 import LayoutAside from './components/LayoutAside.tsx'
+import LayoutHeader from './components/LayoutHeader.vue';
 </script>
 
 <style scoped lang="scss">
@@ -35,7 +38,7 @@ import LayoutAside from './components/LayoutAside.tsx'
     flex: 1;
 
     & .layout-main-header {
-      height: 50px;
+			height: 50px;
       background-color: #fff;
       box-shadow:
         0 2px 4px rgb(0 0 0 / 12%),

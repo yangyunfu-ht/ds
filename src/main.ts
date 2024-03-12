@@ -28,6 +28,7 @@ router.beforeEach(to => {
   document.title = to.name as string
 })
 
+
 router.afterEach(() => {
   NProgress.done()
 })

@@ -132,6 +132,10 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+	scrollBehavior() {
+    // 始终滚动到顶部
+    return { top: 0 }
+  },
 })
 
 export default router

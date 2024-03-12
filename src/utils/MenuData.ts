@@ -1,6 +1,10 @@
-import { RouteRecordRaw } from 'vue-router'
+export interface MenuItem {
+	name: string
+	path: string
+	children?: MenuItem[] | undefined
+}
 
-const routes: Array<RouteRecordRaw> = [
+const routes: Array<MenuItem> = [
   {
     path: '/',
     name: '首页',
@@ -10,15 +14,15 @@ const routes: Array<RouteRecordRaw> = [
     name: '菜单一',
     children: [
       {
-        path: '/1-1',
+        path: '1-1',
         name: '表格',
       },
       {
-        path: '/1-2',
+        path: '1-2',
         name: '日历',
       },
       {
-        path: '/1-3-1',
+        path: '1-3-1',
         name: '信息描述',
       },
     ],
@@ -43,16 +47,12 @@ const routes: Array<RouteRecordRaw> = [
     name: '菜单三',
     children: [
       {
-        path: '/3-1',
+        path: '3-1',
         name: '标签页',
       },
       {
-        path: '/3-2',
+        path: '3-2',
         name: '时间线-漫游引导',
-      },
-      {
-        path: '/3-3',
-        name: '虚拟列表',
       },
     ],
   },
@@ -61,19 +61,19 @@ const routes: Array<RouteRecordRaw> = [
     name: '菜单四',
     children: [
       {
-        path: '/4-1',
+        path: '4-1',
         name: '加载',
       },
       {
-        path: '/4-2',
+        path: '4-2',
         name: '水印指令',
       },
       {
-        path: '/4-3',
+        path: '4-3',
         name: '打印',
       },
       {
-        path: '/4-4',
+        path: '4-4',
         name: '打印图片',
       },
     ],
@@ -83,15 +83,15 @@ const routes: Array<RouteRecordRaw> = [
     name: '运营',
     children: [
       {
-        path: '/5-1',
+        path: '5-1',
         name: '运单管理',
         children: [
           {
-            path: '/5-1-1',
+            path: '5-1-1',
             name: '网点发出',
             children: [
               {
-                path: '/5-1-1-1',
+                path: '5-1-1-1',
                 name: '网点到达',
               },
             ],
@@ -105,7 +105,7 @@ const routes: Array<RouteRecordRaw> = [
     name: '列表页',
     children: [
       {
-        path: '/6-1',
+        path: '6-1',
         name: '数据列表',
       },
     ],
@@ -115,7 +115,7 @@ const routes: Array<RouteRecordRaw> = [
     name: '系统设置',
     children: [
       {
-        path: '/7-1',
+        path: '7-1',
         name: '菜单设置',
       },
     ],

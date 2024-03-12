@@ -1,5 +1,9 @@
 <template>
-  <div>111</div>
+  <div style="height: 100%;">
+		<LayoutBreadcrumb></LayoutBreadcrumb>
+	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LayoutBreadcrumb from './LayoutBreadcrumb.vue';
+</script>
