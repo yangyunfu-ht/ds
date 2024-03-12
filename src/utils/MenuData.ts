@@ -1,7 +1,7 @@
 export interface MenuItem {
-	name: string
-	path: string
-	children?: MenuItem[] | undefined
+  name: string
+  path: string
+  children?: MenuItem[] | undefined
 }
 
 const routes: Array<MenuItem> = [

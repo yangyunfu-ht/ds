@@ -132,7 +132,7 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-	scrollBehavior() {
+  scrollBehavior() {
     // 始终滚动到顶部
     return { top: 0 }
   },
