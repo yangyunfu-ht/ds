@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-
 import LayoutPage from '@/layout/LayoutPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
-  {
+	{
     path: '',
     name: 'index',
     component: LayoutPage,
@@ -21,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
     component: LayoutPage,
     children: [
       {
-        path: '',
+        path: '/1-1',
         name: '表格',
         component: () => import('@/pages/MenuOne/OnePage.vue'),
       },
@@ -44,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
     component: LayoutPage,
     children: [
       {
-        path: '',
+        path: '/2-1',
         name: '抽屉',
         component: () => import('@/pages/MenuTwo/OnePage.vue'),
       },
@@ -61,7 +60,7 @@ const routes: Array<RouteRecordRaw> = [
     component: LayoutPage,
     children: [
       {
-        path: '',
+        path: '/3-1',
         name: '标签页',
         component: () => import('@/pages/MenuThree/OnePage.vue'),
       },
@@ -69,6 +68,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/3-2',
         name: '时间线-漫游引导',
         component: () => import('@/pages/MenuThree/TwoPage.vue'),
+      },
+      {
+        path: '/3-3',
+        name: '虚拟列表',
+        component: () => import('@/pages/MenuThree/ThreePage.vue'),
       },
     ],
   },
@@ -78,7 +82,7 @@ const routes: Array<RouteRecordRaw> = [
     component: LayoutPage,
     children: [
       {
-        path: '',
+        path: '/4-1',
         name: '加载',
         component: () => import('@/pages/MenuFour/OnePage.vue'),
       },
@@ -99,6 +103,30 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+	{
+		path: '/6',
+		name: '列表页',
+		component: LayoutPage,
+		children: [
+			{
+				path: '/6-1',
+				name: '虚拟列表',
+				component: () => import('@/pages/FivePage/FirstPage.vue')
+			}
+		]
+	},
+	{
+		path: '/7',
+		name: '系统设置',
+		component: LayoutPage,
+		children: [
+			{
+				path: '/7-1',
+				name: '菜单设置',
+				component: () => import('@/pages/SystemSetting/MenuSetting.vue')
+			}
+		]
+	}
 ]
 
 const router = createRouter({

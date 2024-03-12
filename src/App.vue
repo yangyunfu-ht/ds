@@ -1,21 +1,3 @@
 <template>
-  <el-watermark
-    :content="['得胜物流']"
-    :zIndex="10000"
-    :gap="[250, 250]"
-    :font="font"
-    style="height: 100%"
-  >
-    <router-view></router-view>
-  </el-watermark>
+  <router-view></router-view>
 </template>
-
-<script setup lang="ts">
-import { reactive } from 'vue'
-
-const font = reactive({
-  // color: 'rgba(255, 255, 255, .5)',
-})
-</script>
-
-<!-- <style lang="scss" scoped></style> -->

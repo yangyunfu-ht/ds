@@ -1,55 +1,42 @@
 <template>
-  <div class="common-layout">
-    <el-container>
-      <el-aside width="250px" style="background-color: #909399">
-        <layout-aside></layout-aside>
-      </el-aside>
-      <section class="section">
-        <el-header height="50px" style="background-color: #f0f2f5">
-          <el-avatar
-            :size="40"
-            src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-        /></el-header>
-        <section class="main-content">
-          <router-view></router-view>
-        </section>
-      </section>
-    </el-container>
-  </div>
+	<section class="layout">
+		<aside class="layout-menu">
+			<LayoutAside></LayoutAside>
+		</aside>
+		<main class="layout-main">
+			<header class="layout-main-header"></header>
+				<main style="margin: 12px;">
+					<router-view></router-view>
+				</main>
+		</main>
+	</section>
 </template>
 
 <script setup lang="ts">
-import LayoutAside from './components/LayoutAside.vue'
+import LayoutAside from './components/LayoutAside.tsx'
 </script>
 
-<style lang="scss" scoped>
-.common-layout {
-  height: 100%;
+<style scoped lang="scss">
+.layout {
+	height: 100%;
+	display: flex;
+	background-color: #F2F6FC;
 
-  .el-container {
-    height: 100%;
+	& .layout-menu {
+		width: 250px;
+		background-color: #fff;
+		box-sizing: border-box;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, .22), 0 0 6px rgba(0, 0, 0, .14)
+	}
 
-    .section {
-      box-sizing: border-box;
-      display: block;
-      flex: 1;
-      flex-basis: auto;
-      padding: var(--el-main-padding);
-      overflow: auto;
-      -el-main-padding: 20px;
+	& .layout-main {
+		flex: 1;
 
-      .el-header {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
-
-      .main-content {
-        box-sizing: border-box;
-        height: calc(100% - 50px);
-        padding: 12px;
-      }
-    }
-  }
+		& .layout-main-header {
+			height: 50px;
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+		}
+	}
 }
 </style>
