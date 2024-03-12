@@ -30,7 +30,7 @@ export default defineComponent({
 
     return () => (
       <el-menu router default-active="/" unique-opened>
-        { renderMenu(menus) }
+        {renderMenu(menus)}
       </el-menu>
     )
   },

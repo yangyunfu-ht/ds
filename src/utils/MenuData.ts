@@ -85,43 +85,41 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/5-1',
         name: '运单管理',
-				children: [
-					{
-						path: '/5-1-1',
-						name: '网点发出',
-						children: [
-							{
-								path: '/5-1-1-1',
-								name: '网点到达',
-							}
-						],
-					}
-				],
-      }
+        children: [
+          {
+            path: '/5-1-1',
+            name: '网点发出',
+            children: [
+              {
+                path: '/5-1-1-1',
+                name: '网点到达',
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
-	{
-		path: '/6',
-		name: '列表页',
-		children: [
-			{
-				path: '/6-1',
-				name: '数据列表'
-			}
-		]
-	},
-	{
-		path: '/7',
-		name: '系统设置',
-		children: [
-			{
-				path: '/7-1',
-				name: '菜单设置',
-			}
-		]
-	}
+  {
+    path: '/6',
+    name: '列表页',
+    children: [
+      {
+        path: '/6-1',
+        name: '数据列表',
+      },
+    ],
+  },
+  {
+    path: '/7',
+    name: '系统设置',
+    children: [
+      {
+        path: '/7-1',
+        name: '菜单设置',
+      },
+    ],
+  },
 ]
 
-export {
-	routes
-}
+export { routes }

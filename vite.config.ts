@@ -5,7 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Inspect from 'vite-plugin-inspect'
-import vueJsx from "@vitejs/plugin-vue-jsx";
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const pathSrc: string = path.resolve(__dirname, 'src')
 
@@ -18,7 +18,7 @@ export default defineConfig({
   },
   plugins: [
     Vue(),
-		vueJsx(),
+    vueJsx(),
     AutoImport({
       // Auto import functions from Vue, e.g. ref, reactive, toRef...
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
@@ -42,7 +42,7 @@ export default defineConfig({
     }),
     Inspect(),
   ],
-	server: {
-		open: true,
-	}
+  server: {
+    open: true,
+  },
 })

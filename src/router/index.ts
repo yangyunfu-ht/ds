@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import LayoutPage from '@/layout/LayoutPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
-	{
+  {
     path: '',
     name: 'index',
     component: LayoutPage,
@@ -103,30 +103,30 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-	{
-		path: '/6',
-		name: '列表页',
-		component: LayoutPage,
-		children: [
-			{
-				path: '/6-1',
-				name: '虚拟列表',
-				component: () => import('@/pages/FivePage/FirstPage.vue')
-			}
-		]
-	},
-	{
-		path: '/7',
-		name: '系统设置',
-		component: LayoutPage,
-		children: [
-			{
-				path: '/7-1',
-				name: '菜单设置',
-				component: () => import('@/pages/SystemSetting/MenuSetting.vue')
-			}
-		]
-	}
+  {
+    path: '/6',
+    name: '列表页',
+    component: LayoutPage,
+    children: [
+      {
+        path: '/6-1',
+        name: '虚拟列表',
+        component: () => import('@/pages/FivePage/FirstPage.vue'),
+      },
+    ],
+  },
+  {
+    path: '/7',
+    name: '系统设置',
+    component: LayoutPage,
+    children: [
+      {
+        path: '/7-1',
+        name: '菜单设置',
+        component: () => import('@/pages/SystemSetting/MenuSetting.vue'),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({
