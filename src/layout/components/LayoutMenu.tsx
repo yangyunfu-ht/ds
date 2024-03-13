@@ -48,6 +48,7 @@ export default defineComponent({
             width: '250px',
             height: 'calc(100% - 130px)',
             overflowY: 'scroll',
+            borderRight: 'none'
           }}
         >
           {renderMenu(menus)}
