@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     DsButton: (typeof import('./components/DsButton.vue'))['default']
     ElAside: (typeof import('element-plus/es'))['ElAside']
+    ElAutocomplete: (typeof import('element-plus/es'))['ElAutocomplete']
     ElAvatar: (typeof import('element-plus/es'))['ElAvatar']
     ElBreadcrumb: (typeof import('element-plus/es'))['ElBreadcrumb']
     ElBreadcrumbItem: (typeof import('element-plus/es'))['ElBreadcrumbItem']
@@ -37,6 +38,7 @@ declare module 'vue' {
     ElRadioButton: (typeof import('element-plus/es'))['ElRadioButton']
     ElRadioGroup: (typeof import('element-plus/es'))['ElRadioGroup']
     ElRow: (typeof import('element-plus/es'))['ElRow']
+    ElScrollbar: (typeof import('element-plus/es'))['ElScrollbar']
     ElSelect: (typeof import('element-plus/es'))['ElSelect']
     ElSpace: (typeof import('element-plus/es'))['ElSpace']
     ElSubMenu: (typeof import('element-plus/es'))['ElSubMenu']

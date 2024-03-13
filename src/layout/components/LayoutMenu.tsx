@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import { routes } from '@/utils/MenuData.ts'
 import { reactive } from 'vue'
 import type { MenuItem } from '@/utils/MenuData.ts'
+import SearchMenu from './SearchMenu.vue'
 
 export default defineComponent({
   setup() {
@@ -29,9 +30,26 @@ export default defineComponent({
     }
 
     return () => (
-      <el-menu router default-active="/" unique-opened>
-        {renderMenu(menus)}
-      </el-menu>
+      <>
+        <div style="background-color:#fff;display: flex;justify-content:center;align-items: center;height:70px">
+          {/* <img src="https://tms.dswljt.cn/static/img/logo.f0396b2.png" style="width:200px;height:55px" alt="logo" /> */}
+          <span>logo</span>
+        </div>
+        <div style="height: 60px;display: flex;justify-content:center;align-items: center">
+          <SearchMenu></SearchMenu>
+        </div>
+        <el-menu
+          router
+          default-active="/"
+          style={{
+            width: '250px',
+            height: 'calc(100% - 130px)',
+            overflowY: 'scroll',
+          }}
+        >
+          {renderMenu(menus)}
+        </el-menu>
+      </>
     )
   },
 })

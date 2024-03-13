@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        name: '首页',
+        name: '主页',
         component: () => import('@/pages/HomePage/HomePage.vue'),
       },
     ],

@@ -1,6 +1,11 @@
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', {
+  persist: {
+    key: 'counter',
+    storage: sessionStorage,
+    paths: undefined,
+  },
   state: () => {
     return {
       count: 0,

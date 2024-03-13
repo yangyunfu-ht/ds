@@ -5,10 +5,10 @@ export interface MenuItem {
 }
 
 const routes: Array<MenuItem> = [
-  {
-    path: '/',
-    name: '首页',
-  },
+  // {
+  //   path: '/',
+  //   name: '主页',
+  // },
   {
     path: '/1',
     name: '菜单一',
