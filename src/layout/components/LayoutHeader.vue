@@ -13,13 +13,13 @@
   background-color: #fff;
 
   .menu-toggle {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 100%;
     font-size: 15px;
-    box-sizing: border-box;
     cursor: pointer;
     background-color: #f5f7fa;
 
