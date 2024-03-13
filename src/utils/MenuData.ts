@@ -33,11 +33,11 @@ const routes: Array<MenuItem> = [
     name: '菜单二',
     children: [
       {
-        path: '/2-1',
+        path: '2-1',
         name: '抽屉',
       },
       {
-        path: '/2-2',
+        path: '2-2',
         name: '弹出框',
       },
     ],
@@ -89,12 +89,10 @@ const routes: Array<MenuItem> = [
           {
             path: '5-1-1',
             name: '网点发出',
-            children: [
-              {
-                path: '5-1-1-1',
-                name: '网点到达',
-              },
-            ],
+          },
+          {
+            path: '5-1-2',
+            name: '网点到达',
           },
         ],
       },

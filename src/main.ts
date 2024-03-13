@@ -38,3 +38,5 @@ import { useCounterStore } from './store/counter'
 
 const { count } = useCounterStore()
 console.log(count)
+
+import '@/utils/array'

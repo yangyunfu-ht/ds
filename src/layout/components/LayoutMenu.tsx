@@ -9,6 +9,7 @@ export default defineComponent({
   setup() {
     const menus = reactive(routes)
 
+    const defaultOpeneds = ['/1']
     const renderMenu = (items: Array<MenuItem>) => {
       return items.map((item, index: number) =>
         item.children ? (
@@ -40,7 +41,9 @@ export default defineComponent({
         </div>
         <el-menu
           router
-          default-active="/"
+          default-active="/4-1"
+          default-openeds={defaultOpeneds}
+          unique-opened
           style={{
             width: '250px',
             height: 'calc(100% - 130px)',

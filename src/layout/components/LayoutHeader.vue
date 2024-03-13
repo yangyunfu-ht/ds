@@ -9,17 +9,17 @@
 <style lang="scss" scoped>
 .layout-header {
   box-sizing: border-box;
-  height: 50px;
+  height: 40px;
   background-color: #fff;
-  border-bottom: 1px solid var(--el-border-color);
 
   .menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
-    height: 50px;
+    height: 100%;
     font-size: 15px;
+    box-sizing: border-box;
     cursor: pointer;
     background-color: #f5f7fa;
 
