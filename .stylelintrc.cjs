@@ -27,6 +27,6 @@ module.exports = {
         ignorePseudoClasses: ['global', 'export', 'v-deep', 'deep'],
       },
     ],
-		'selector-class-pattern': null
+    'selector-class-pattern': null,
   },
 }
