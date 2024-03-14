@@ -6,7 +6,7 @@
     <main class="layout-main">
       <header class="layout-main-header">
         <LayoutHeader></LayoutHeader>
-				<LayoutTab></LayoutTab>
+        <LayoutTab></LayoutTab>
       </header>
       <main class="layout-content-main">
         <router-view></router-view>
@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import LayoutMenu from './components/LayoutMenu.tsx'
 import LayoutHeader from './components/LayoutHeader.vue'
-import LayoutTab from './components/LayoutTab.vue';
+import LayoutTab from './components/LayoutTab.vue'
 </script>
 
 <style scoped lang="scss">

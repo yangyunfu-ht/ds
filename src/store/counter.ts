@@ -14,9 +14,9 @@ export const useCounterStore = defineStore('counter', {
       this.count++
     },
   },
-	persist: {
-		key: 'my-custom-key',
-		storage: localStorage,
-		paths: ['count'],
-	}
+  persist: {
+    key: 'my-custom-key',
+    storage: localStorage,
+    paths: ['count'],
+  },
 })
