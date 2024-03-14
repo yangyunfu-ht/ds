@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import persist from 'pinia-plugin-persistedstate'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -11,6 +11,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 const app = createApp(App)
 
 NProgress.configure({
@@ -23,7 +24,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 const pinia = createPinia()
-pinia.use(persist)
+pinia.use(piniaPluginPersistedstate)
 
 app.use(ElementPlus, { locale: zhCn })
 app.use(router)
@@ -39,9 +40,3 @@ router.afterEach(() => {
   NProgress.done()
 })
 
-import { useCounterStore } from './store/counter'
-
-const { count } = useCounterStore()
-console.log(count)
-
-import '@/utils/array'

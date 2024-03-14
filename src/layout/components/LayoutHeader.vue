@@ -1,6 +1,6 @@
 <template>
   <div class="layout-header">
-    <div class="menu-toggle">主页</div>
+    <!-- <div class="menu-toggle">主页</div> -->
   </div>
 </template>
 

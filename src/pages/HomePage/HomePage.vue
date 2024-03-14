@@ -5,6 +5,8 @@
         <template #header>
           <div class="card-header">
             <span>Card name</span>
+						<el-button>{{ count }}</el-button>
+						<el-button @click="counter.increment">increment</el-button>
           </div>
         </template>
         <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
@@ -274,6 +276,12 @@
 import { reactive, ref, h } from 'vue'
 import type { Ref } from 'vue'
 import { ElMessage, ElNotification } from 'element-plus'
+import { useCounterStore } from '@/store/counter';
+import { storeToRefs } from 'pinia';
+
+const counter = useCounterStore()
+
+const { count } = storeToRefs(counter)
 
 interface ButtonConfig1 {
   content: string
