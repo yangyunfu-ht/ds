@@ -253,19 +253,19 @@
     </div>
   </el-card>
 
-  <el-card>
+  <el-card style="margin-top: 20px">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
   </el-card>
-  <el-card>
+  <el-card style="margin-top: 20px">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
   </el-card>
-  <el-card>
+  <el-card style="margin-top: 20px">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
   </el-card>
-  <el-card>
+  <el-card style="margin-top: 20px">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
   </el-card>
-  <el-card>
+  <el-card style="margin-top: 20px">
     <p v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</p>
   </el-card>
 </template>
@@ -332,7 +332,7 @@ const options: Array<MessageConfig> = reactive([
 
 const value: Ref<number> = ref(1)
 
-const handleClickButton = (type: string, index: number) => {
+const handleClickButton = (_type: string, index: number) => {
   value.value === 1
     ? ElMessage(`点击了第${index + 1}个按钮`)
     : ElNotification({

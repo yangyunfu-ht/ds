@@ -11,6 +11,7 @@
   box-sizing: border-box;
   height: 40px;
   background-color: #fff;
+	border-bottom: 1px solid #f5f7fa;
 
   .menu-toggle {
     box-sizing: border-box;

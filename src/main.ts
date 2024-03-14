@@ -13,6 +13,11 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 const app = createApp(App)
 
+NProgress.configure({ 
+	showSpinner: false, // 进度环显示隐藏
+	parent: 'body', //指定进度条的父容器 
+})
+
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }

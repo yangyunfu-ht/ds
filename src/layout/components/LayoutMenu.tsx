@@ -41,7 +41,7 @@ export default defineComponent({
         </div>
         <el-menu
           router
-          default-active="/4-1"
+          default-active="/1-1"
           default-openeds={defaultOpeneds}
           unique-opened
           style={{
