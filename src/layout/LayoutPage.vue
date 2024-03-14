@@ -32,7 +32,7 @@ import LayoutHeader from './components/LayoutHeader.vue'
     box-shadow:
       0 2px 4px rgb(0 0 0 / 22%),
       0 0 6px rgb(0 0 0 / 14%);
-			scroll-behavior: smooth;
+    scroll-behavior: smooth;
 
     ::-webkit-scrollbar {
       display: none;
@@ -63,13 +63,13 @@ import LayoutHeader from './components/LayoutHeader.vue'
     .layout-content-main {
       padding: 8px;
       overflow-y: auto;
-			scroll-behavior: smooth;
+      scroll-behavior: smooth;
 
-    //   ::-webkit-scrollbar {
-    //     display: none;
+      //   ::-webkit-scrollbar {
+      //     display: none;
 
-    //     /* Chrome Safari */
-    //   }
+      //     /* Chrome Safari */
+      //   }
     }
   }
 }

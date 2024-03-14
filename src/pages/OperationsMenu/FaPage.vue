@@ -1,13 +1,7 @@
 <template>
-	<div>
-		<el-card>网点发出</el-card>
-	</div>
+  <div>
+    <el-card>网点发出</el-card>
+  </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
-
-<style scoped>
-
-</style>
+<script setup lang="ts"></script>

@@ -112,17 +112,17 @@ const routes: Array<RouteRecordRaw> = [
         path: '/5-1',
         name: '运营管理',
         children: [
-					{
-						path: '/5-1-1',
-						name: '网点发出',
-						component: () => import('@/pages/OperationsMenu/FaPage.vue'),
-					},
-					{
-						path: '/5-1-2',
-						name: '网点到达',
-						component: () => import('@/pages/OperationsMenu/ArrivalPage.vue'),
-					},
-				]
+          {
+            path: '/5-1-1',
+            name: '网点发出',
+            component: () => import('@/pages/OperationsMenu/FaPage.vue'),
+          },
+          {
+            path: '/5-1-2',
+            name: '网点到达',
+            component: () => import('@/pages/OperationsMenu/ArrivalPage.vue'),
+          },
+        ],
       },
     ],
   },
