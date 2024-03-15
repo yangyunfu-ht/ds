@@ -3,7 +3,7 @@
     <div class="left-tab">
       <div
         class="left-arrow-tab tab"
-        style=" padding: 0 12px;margin: 0 5px"
+        style="padding: 0 12px; margin: 0 5px"
         @click="previous"
       >
         <el-icon>
@@ -26,7 +26,7 @@
     <div class="right-tab">
       <div
         class="right-arrow-tab tab"
-        style=" padding: 0 12px;margin: 0 5px"
+        style="padding: 0 12px; margin: 0 5px"
         @click="next"
       >
         <el-icon>
