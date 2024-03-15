@@ -45,6 +45,7 @@ import LayoutHeader from './components/LayoutHeader.vue'
     display: flex;
     flex-direction: column;
     width: calc(100vw - 250px);
+    min-width: 1000px;
 
     .layout-main-header {
       width: calc(100vw - 250px);

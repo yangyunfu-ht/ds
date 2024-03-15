@@ -1,7 +1,8 @@
 <template>
   <div class="layout-header">
     <div class="menu-toggle" @click="router.push('/')">主页</div>
-    <LayoutTab style="min-width: 1000px"></LayoutTab>
+    <LayoutTab class="header-tab"></LayoutTab>
+    <div class="header-right"></div>
   </div>
 </template>
 
@@ -25,9 +26,10 @@ const router = useRouter()
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
     height: 100%;
+    padding: 0 16px;
     font-size: 15px;
+    white-space: nowrap;
     cursor: pointer;
     background-color: #f5f7fa;
 
@@ -38,6 +40,14 @@ const router = useRouter()
 
   .el-icon {
     font-size: 18px;
+  }
+
+  .header-tab {
+    flex: 1;
+  }
+
+  .header-right {
+    flex: 1;
   }
 }
 </style>
