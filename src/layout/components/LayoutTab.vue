@@ -61,20 +61,19 @@ const tabs = ref<Array<string>>([])
 const close = (index: number) => {
   tabs.value.splice(index, 1)
 }
-const previous = () => {
-  (
+const previous = () =>
+  ((
     document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
   ).scrollLeft =
     (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
-      .scrollLeft - 88
-}
-const next = () => {
-  (
+      .scrollLeft - 88)
+
+const next = () =>
+  ((
     document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
   ).scrollLeft =
     (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
-      .scrollLeft + 88
-}
+      .scrollLeft + 88)
 
 const scroll = (e: UIEvent) => {
   console.log((e.target as HTMLDivElement).scrollLeft)
