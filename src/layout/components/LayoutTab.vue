@@ -1,39 +1,39 @@
 <template>
   <div class="layout-tab">
     <div class="left-tab">
-      <div class="main-tab" @click="goHome">
-        <span>主页{{ startIndex }}</span>
-      </div>
-      <div class="main-tab" style="width: 30px" @click="previous">
-        <el-tooltip
-          class="box-item"
-          effect="dark"
-          content="上一页"
-          placement="bottom"
-        >
-          <el-icon>
-            <ArrowLeft />
-          </el-icon>
-        </el-tooltip>
+      <div
+        class="left-arrow-tab tab"
+        style=" padding: 0 12px;margin: 0 5px"
+        @click="previous"
+      >
+        <el-icon>
+          <ArrowLeft />
+        </el-icon>
       </div>
     </div>
-    <section class="middle-tab" ref="tabWrapper">
-      <div class="tab" v-for="item of 50" :key="item">{{ item }}</div>
+    <section class="middle-tab" ref="tabWrapper" @scroll="scroll">
+      <div class="tab" v-for="(item, index) of tabs" :key="index">
+        <div class="center" style="margin-right: 8px">
+          {{ item }}
+        </div>
+        <div class="center close" @click="close(index)">
+          <el-icon :size="12">
+            <Close />
+          </el-icon>
+        </div>
+      </div>
     </section>
     <div class="right-tab">
-      <div class="refresh-tab" style="width: 30px" @click="next">
-        <el-tooltip
-          class="box-item"
-          effect="dark"
-          content="下一页"
-          placement="bottom"
-        >
-          <el-icon>
-            <ArrowRight />
-          </el-icon>
-        </el-tooltip>
+      <div
+        class="right-arrow-tab tab"
+        style=" padding: 0 12px;margin: 0 5px"
+        @click="next"
+      >
+        <el-icon>
+          <ArrowRight />
+        </el-icon>
       </div>
-      <div class="refresh-tab" @click="refresh">
+      <div class="refresh-tab tab" style="padding: 0 20px" @click="refresh">
         <el-tooltip
           class="box-item"
           effect="dark"
@@ -54,97 +54,100 @@ import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 
 const router = useRouter()
-const startIndex = ref<number>(0)
 const tabWrapper = ref<HTMLDivElement | null>(null)
 
 const refresh = () => router.go(0)
-const goHome = () => router.push('/')
-
+const tabs = ref<Array<string>>([])
+const close = (index: number) => {
+  tabs.value.splice(index, 1)
+}
 const previous = () => {
-  if (startIndex.value === 0) return
-  startIndex.value -= 1
-  tabWrapper.value?.scrollTo({
-    top: 0,
-    left: -100,
-    behavior: 'smooth',
-  })
-  console.log(document.getElementsByClassName('middle-tab')[0].scrollLeft)
+  ;(
+    document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
+  ).scrollLeft =
+    (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
+      .scrollLeft - 88
 }
 const next = () => {
-  tabWrapper.value?.scrollTo({
-    top: 0,
-    left: 100 * startIndex.value,
-    behavior: 'smooth',
-  })
-  startIndex.value += 1
-  console.log(document.getElementsByClassName('middle-tab')[0].scrollLeft)
+  ;(
+    document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
+  ).scrollLeft =
+    (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
+      .scrollLeft + 88
+}
+
+const scroll = (e: UIEvent) => {
+  console.log((e.target as HTMLDivElement).scrollLeft)
 }
 </script>
 
 <style lang="scss" scoped>
 .layout-tab {
+  box-sizing: border-box;
   display: flex;
-  height: 40px;
+  //   padding: 4px 2px;
   overflow-x: scroll;
+
+  .tab {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 13px;
+    color: #606266;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: #f5f7fa;
+    border-radius: 4px;
+  }
+
+  .tab:hover {
+    background-color: #ebeef5;
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.02);
+  }
+
+  .main-tab {
+    padding: 8px 24px;
+    margin-right: 0;
+    background-color: #ebeef5;
+  }
 
   .left-tab {
     display: flex;
-
-    .main-tab {
-      width: 70px;
-      margin: 2px 5px 2px 0;
-      line-height: 40px;
-      text-align: center;
-      cursor: pointer;
-      background-color: #f5f7fa;
-    }
-
-    .main-tab:hover {
-      background-color: #e6e8eb;
-    }
+    justify-content: space-between;
   }
 
   .middle-tab {
     display: flex;
     flex: 1;
-    overflow-x: hidden;
+    overflow-x: scroll;
     cursor: pointer;
     transition: all 2s ease-in-out;
+  }
 
-    .tab {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      margin: 2px 10px 2px 2px;
-      user-select: none;
-      background-color: #f0f2f5;
-      border-radius: 4px;
-
-      .tab:hover {
-        background-color: #000;
-      }
-    }
+  .middle-tab::-webkit-scrollbar {
+    display: none;
   }
 
   .right-tab {
     display: flex;
     justify-content: space-around;
-
-    .refresh-tab {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      margin: 2px 0 2px 5px;
-      cursor: pointer;
-      background-color: #f5f7fa;
-    }
-
-    .refresh-tab:hover {
-      background-color: #e6e8eb;
-    }
   }
+}
+
+.layout-tab::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

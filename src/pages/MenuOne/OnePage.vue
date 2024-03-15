@@ -3,7 +3,7 @@
     border
     stripe
     :data="filterTableData"
-    style="width: 100%; height: 100%"
+    style="width: 100%; height: 200px"
   >
     <el-table-column label="Date" prop="date" />
     <el-table-column label="Name" prop="name" />

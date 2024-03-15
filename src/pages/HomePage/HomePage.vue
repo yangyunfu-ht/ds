@@ -273,7 +273,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, h } from 'vue'
+import { reactive, ref, h, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { ElMessage, ElNotification } from 'element-plus'
 import { useCounterStore } from '@/store/counter'
@@ -282,6 +282,10 @@ import { storeToRefs } from 'pinia'
 const counter = useCounterStore()
 
 const { count } = storeToRefs(counter)
+
+onMounted(() => {
+  console.log(count.value)
+})
 
 interface ButtonConfig1 {
   content: string

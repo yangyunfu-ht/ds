@@ -6,7 +6,6 @@
     <main class="layout-main">
       <header class="layout-main-header">
         <LayoutHeader></LayoutHeader>
-        <LayoutTab></LayoutTab>
       </header>
       <main class="layout-content-main">
         <router-view></router-view>
@@ -18,7 +17,6 @@
 <script setup lang="ts">
 import LayoutMenu from './components/LayoutMenu.tsx'
 import LayoutHeader from './components/LayoutHeader.vue'
-import LayoutTab from './components/LayoutTab.vue'
 </script>
 
 <style scoped lang="scss">
@@ -38,8 +36,8 @@ import LayoutTab from './components/LayoutTab.vue'
 
     ::-webkit-scrollbar {
       display: none;
-
-      /* Chrome Safari */
+      width: 0;
+      height: 0;
     }
   }
 
@@ -47,12 +45,6 @@ import LayoutTab from './components/LayoutTab.vue'
     display: flex;
     flex-direction: column;
     width: calc(100vw - 250px);
-
-    ::-webkit-scrollbar {
-      display: none;
-
-      /* Chrome Safari */
-    }
 
     .layout-main-header {
       width: calc(100vw - 250px);
@@ -64,14 +56,13 @@ import LayoutTab from './components/LayoutTab.vue'
 
     .layout-content-main {
       padding: 8px;
-      overflow-y: auto;
+      overflow-y: scroll;
       scroll-behavior: smooth;
+    }
 
-      //   ::-webkit-scrollbar {
-      //     display: none;
-
-      //     /* Chrome Safari */
-      //   }
+    /* 设置滚动条的样式 */
+    .layout-content-main::-webkit-scrollbar {
+      display: none;
     }
   }
 }

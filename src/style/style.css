@@ -6,6 +6,10 @@ body,
   background-color: #e4e7ed;
 }
 
+* {
+  user-select: none;
+}
+
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.3s ease-out;
