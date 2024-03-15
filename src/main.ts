@@ -11,8 +11,11 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { vFoucs } from './directives/WaterMark'
 
 const app = createApp(App)
+
+app.directive('fousc', vFoucs)
 
 NProgress.configure({
   showSpinner: false, // 进度环显示隐藏
