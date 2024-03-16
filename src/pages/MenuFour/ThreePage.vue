@@ -13,6 +13,8 @@
           width: 300px;
           height: 200px;
           margin: 10px;
+          font-weight: bold;
+          color: #000;
           border: 1px solid #000;
         "
       >
@@ -85,7 +87,7 @@ const printImage = () => {
       img.src = result
       // eslint-disable-next-line no-undef
       var lodop = getLodop()
-      lodop.SET_PRINTER_INDEX(2)
+      // lodop.SET_PRINTER_INDEX(2)
 
       // 打开打印窗口
       lodop.PRINT_INIT('打印图片')

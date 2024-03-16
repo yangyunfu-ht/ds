@@ -44,6 +44,7 @@ declare module 'vue' {
     ElTour: (typeof import('element-plus/es'))['ElTour']
     ElTourStep: (typeof import('element-plus/es'))['ElTourStep']
     HomeCom: (typeof import('./components/HomeCom.vue'))['default']
+    IconSelect: (typeof import('./components/IconSelect.vue'))['default']
     RouterLink: (typeof import('vue-router'))['RouterLink']
     RouterView: (typeof import('vue-router'))['RouterView']
   }

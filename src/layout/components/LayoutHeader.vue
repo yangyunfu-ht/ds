@@ -1,16 +1,21 @@
 <template>
   <div class="layout-header">
-    <div class="menu-toggle" @click="router.push('/')">主页</div>
-    <LayoutTab class="header-tab"></LayoutTab>
+    <div
+      class="menu-toggle"
+      :class="{ activeTab: route.path === '' || route.path == '/' }"
+      @click="router.push('/')"
+    >
+      主页
+    </div>
     <div class="header-right"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import LayoutTab from './LayoutTab.vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>
@@ -36,6 +41,11 @@ const router = useRouter()
     &:hover {
       background-color: #e6e8eb;
     }
+  }
+
+  .activeTab {
+    color: var(--el-menu-active-color);
+    border-radius: 0;
   }
 
   .el-icon {

@@ -6,6 +6,7 @@
     <main class="layout-main">
       <header class="layout-main-header">
         <LayoutHeader></LayoutHeader>
+        <LayoutTab></LayoutTab>
       </header>
       <main class="layout-content-main">
         <router-view></router-view>
@@ -17,6 +18,7 @@
 <script setup lang="ts">
 import LayoutMenu from './components/LayoutMenu.tsx'
 import LayoutHeader from './components/LayoutHeader.vue'
+import LayoutTab from './components/LayoutTab.vue'
 </script>
 
 <style scoped lang="scss">
@@ -45,7 +47,6 @@ import LayoutHeader from './components/LayoutHeader.vue'
     display: flex;
     flex-direction: column;
     width: calc(100vw - 250px);
-    min-width: 1000px;
 
     .layout-main-header {
       width: calc(100vw - 250px);

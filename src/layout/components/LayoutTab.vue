@@ -3,7 +3,7 @@
     <div class="left-tab">
       <div
         class="left-arrow-tab tab"
-        style="padding: 0 12px; margin: 0 5px"
+        style="padding: 0 12px; margin-right: 5px"
         @click="previous"
       >
         <el-icon>
@@ -12,11 +12,20 @@
       </div>
     </div>
     <section class="middle-tab" ref="tabWrapper" @scroll="scroll">
-      <div class="tab" v-for="(item, index) of tabs" :key="index">
-        <div class="center" style="margin-right: 8px">
-          {{ item }}
+      <div
+        class="tab"
+        v-for="({ name, path }, index) of tabs"
+        :key="index"
+        :class="{ activeTab: route.path === path }"
+      >
+        <div
+          class="center"
+          style="margin-right: 8px"
+          @click="router.push(path)"
+        >
+          {{ name }}
         </div>
-        <div class="center close" @click="close(index)">
+        <div class="center close" @click="useTabsStore.removeTab(path)">
           <el-icon :size="12">
             <Close />
           </el-icon>
@@ -26,14 +35,18 @@
     <div class="right-tab">
       <div
         class="right-arrow-tab tab"
-        style="padding: 0 12px; margin: 0 5px"
+        style="padding: 0 12px; margin-left: 5px"
         @click="next"
       >
         <el-icon>
           <ArrowRight />
         </el-icon>
       </div>
-      <div class="refresh-tab tab" style="padding: 0 20px" @click="refresh">
+      <div
+        class="refresh-tab tab"
+        style="padding: 0 20px; margin-right: 0"
+        @click="refresh"
+      >
         <el-tooltip
           class="box-item"
           effect="dark"
@@ -50,17 +63,24 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useTabs } from '@/store/useTabs'
+import { storeToRefs } from 'pinia'
+
+const useTabsStore = useTabs()
+const { tabs } = storeToRefs(useTabsStore)
+
+const route = useRoute()
+watch(route, newRoute => {
+  const { name, path } = newRoute
+  useTabsStore.addTab(name as string, path)
+})
 
 const router = useRouter()
 const tabWrapper = ref<HTMLDivElement | null>(null)
 
 const refresh = () => router.go(0)
-const tabs = ref<Array<string>>([])
-const close = (index: number) => {
-  tabs.value.splice(index, 1)
-}
 const previous = () =>
   ((
     document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
@@ -73,7 +93,7 @@ const next = () =>
     document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
   ).scrollLeft =
     (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
-      .scrollLeft + 88)
+      .scrollLeft + 99)
 
 const scroll = (e: UIEvent) => {
   console.log((e.target as HTMLDivElement).scrollLeft)
@@ -84,7 +104,7 @@ const scroll = (e: UIEvent) => {
 .layout-tab {
   box-sizing: border-box;
   display: flex;
-  //   padding: 4px 2px;
+  padding: 4px 0 0;
   overflow-x: scroll;
 
   .tab {
@@ -106,7 +126,14 @@ const scroll = (e: UIEvent) => {
   .tab:hover {
     background-color: #ebeef5;
     transition: all 0.1s ease-in-out;
-    transform: scale(1.02);
+    transform: scale(1.01);
+  }
+
+  .activeTab {
+    color: var(--el-menu-active-color);
+    // border-radius: 0;
+    // border-top-left-radius: 4px;
+    // border-top-right-radius: 4px;
   }
 
   .main-tab {

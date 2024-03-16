@@ -2,47 +2,42 @@
   <div>
     <el-card>
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
-        <el-row>
-          <el-col :span="4">
-            <el-form-item label="菜单名称">
-              <el-input
-                v-model="formInline.user"
-                placeholder="请输入菜单名称"
-                clearable
-              /> </el-form-item
-          ></el-col>
-          <el-col :span="4">
-            <el-form-item label="菜单路径">
-              <el-input
-                v-model="formInline.user"
-                placeholder="请输入菜单路径"
-                clearable
-              /> </el-form-item
-          ></el-col>
-          <el-col :span="6">
-            <el-form-item label="创建时间">
-              <el-date-picker
-                v-model="value1"
-                type="datetimerange"
-                range-separator="-"
-                start-placeholder="Start date"
-                end-placeholder="End date"
-              /> </el-form-item
-          ></el-col>
-          <el-col :span="4">
-            <el-form-item label="缓存页面">
-              <el-select v-model="formInline.region" clearable>
-                <el-option label="是" :value="1" />
-                <el-option label="否" :value="0" />
-              </el-select> </el-form-item
-          ></el-col>
+        <el-form-item label="菜单名称">
+          <el-input
+            v-model="formInline.user"
+            placeholder="请输入菜单名称"
+            clearable
+          />
+        </el-form-item>
 
-          <el-col :span="4">
-            <el-form-item>
-              <el-button type="primary" @click="onSubmit">查询</el-button>
-            </el-form-item></el-col
-          >
-        </el-row>
+        <el-form-item label="菜单路径">
+          <el-input
+            v-model="formInline.user"
+            placeholder="请输入菜单路径"
+            clearable
+          />
+        </el-form-item>
+
+        <el-form-item label="创建时间">
+          <el-date-picker
+            v-model="value1"
+            type="datetimerange"
+            range-separator="-"
+            start-placeholder="Start date"
+            end-placeholder="End date"
+          />
+        </el-form-item>
+
+        <el-form-item label="缓存页面">
+          <el-select v-model="formInline.region" clearable>
+            <el-option label="是" :value="1" />
+            <el-option label="否" :value="0" />
+          </el-select>
+        </el-form-item>
+
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit">查询</el-button>
+        </el-form-item>
       </el-form>
     </el-card>
 
@@ -84,7 +79,9 @@
       <template #header="{ close, titleId, titleClass }">
         <h4 :id="titleId" :class="titleClass">This is a custom header!</h4>
         <el-button type="danger" @click="close">
-          <el-icon class="el-icon--left"><CircleCloseFilled /></el-icon>
+          <el-icon class="el-icon--left">
+            <CircleCloseFilled />
+          </el-icon>
           Close
         </el-button>
       </template>
