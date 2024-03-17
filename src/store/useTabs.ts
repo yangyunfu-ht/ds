@@ -12,8 +12,7 @@ export const useTabs = defineStore(
     const addTab = (name: string, path: string) => {
       if (
         !tabs.value.map(tab => tab.name).includes(name) &&
-        !tabs.value.map(tab => tab.path).includes(path) &&
-        name !== '主页'
+        !tabs.value.map(tab => tab.path).includes(path)
       ) {
         tabs.value.unshift({
           name,

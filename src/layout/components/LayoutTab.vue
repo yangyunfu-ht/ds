@@ -72,10 +72,16 @@ const useTabsStore = useTabs()
 const { tabs } = storeToRefs(useTabsStore)
 
 const route = useRoute()
-watch(route, newRoute => {
-  const { name, path } = newRoute
-  useTabsStore.addTab(name as string, path)
-})
+watch(
+  route,
+  newRoute => {
+    const { name, path } = newRoute
+    useTabsStore.addTab(name as string, path)
+  },
+  {
+    immediate: true,
+  }
+)
 
 const router = useRouter()
 const tabWrapper = ref<HTMLDivElement | null>(null)
@@ -104,8 +110,9 @@ const scroll = (e: UIEvent) => {
 .layout-tab {
   box-sizing: border-box;
   display: flex;
-  padding: 4px 0 0;
+  padding: 4px 0;
   overflow-x: scroll;
+  scrollbar-width: none;
 
   .tab {
     box-sizing: border-box;

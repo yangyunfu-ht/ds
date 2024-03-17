@@ -284,7 +284,7 @@ const counter = useCounterStore()
 const { count } = storeToRefs(counter)
 
 onMounted(() => {
-  console.log(count.value)
+  // console.log(count.value)
 })
 
 interface ButtonConfig1 {

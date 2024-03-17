@@ -4,12 +4,14 @@ import { routes } from '@/utils/MenuData.ts'
 import { reactive } from 'vue'
 import type { MenuItem } from '@/utils/MenuData.ts'
 import SearchMenu from './SearchMenu.vue'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   setup() {
     const menus = reactive(routes)
+    const defaultActive = ref<string>('/')
+    const route = useRoute()
 
-    const defaultOpeneds = ['/1']
     const renderMenu = (items: Array<MenuItem>) => {
       return items.map((item, index: number) =>
         item.children ? (
@@ -30,6 +32,10 @@ export default defineComponent({
       )
     }
 
+    watch(route, formRoute => {
+      defaultActive.value = formRoute.path
+    })
+
     return () => (
       <>
         <div style="background-color:#fff;display: flex;justify-content:center;align-items: center;height:70px">
@@ -41,8 +47,7 @@ export default defineComponent({
         </div>
         <el-menu
           router
-          default-active="/1-1"
-          default-openeds={defaultOpeneds}
+          default-active={defaultActive.value}
           unique-opened
           style={{
             width: '250px',

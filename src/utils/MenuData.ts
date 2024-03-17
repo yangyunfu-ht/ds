@@ -1,14 +1,21 @@
+export interface MenuItemMeta {
+  icon?: string
+}
 export interface MenuItem {
   name: string
   path: string
+  meta?: MenuItemMeta
   children?: MenuItem[] | undefined
 }
 
 const routes: Array<MenuItem> = [
-  // {
-  //   path: '/',
-  //   name: '主页',
-  // },
+  {
+    path: '/',
+    name: '主页',
+    meta: {
+      icon: 'House',
+    },
+  },
   {
     path: '/1',
     name: '菜单一',
