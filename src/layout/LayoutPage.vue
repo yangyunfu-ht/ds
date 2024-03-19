@@ -1,70 +1,64 @@
 <template>
   <section class="layout">
-    <aside class="layout-menu">
-      <LayoutMenu></LayoutMenu>
-    </aside>
-    <main class="layout-main">
-      <header class="layout-main-header">
-        <LayoutHeader></LayoutHeader>
-        <LayoutTab></LayoutTab>
-      </header>
-      <main class="layout-content-main">
+    <LayoutMenu :tabWidth="70" :menuWidth="220"></LayoutMenu>
+    <section class="layout-main">
+      <LayoutHeader></LayoutHeader>
+      <main class="layout-main-content">
         <router-view></router-view>
       </main>
-    </main>
+    </section>
   </section>
 </template>
 
 <script setup lang="ts">
-import LayoutMenu from './components/LayoutMenu.tsx'
+import LayoutMenu from './components/LayoutMenu.vue'
 import LayoutHeader from './components/LayoutHeader.vue'
-import LayoutTab from './components/LayoutTab.vue'
 </script>
 
 <style scoped lang="scss">
 .layout {
-  display: flex;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto 1fr;
   height: 100%;
-  background-color: #f2f6fc;
-
-  .layout-menu {
-    box-sizing: border-box;
-    width: 250px;
-    background-color: #fff;
-    box-shadow:
-      0 2px 4px rgb(0 0 0 / 22%),
-      0 0 6px rgb(0 0 0 / 14%);
-    scroll-behavior: smooth;
-
-    ::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
-    }
-  }
+  padding: 6px;
+  overflow: hidden;
 
   .layout-main {
-    display: flex;
-    flex-direction: column;
-    width: calc(100vw - 250px);
+    padding: 0 0 6px 6px;
+    overflow: hidden;
 
-    .layout-main-header {
-      width: calc(100vw - 250px);
-      background-color: #fff;
-      box-shadow:
-        0 2px 4px rgb(0 0 0 / 12%),
-        0 0 6px rgb(0 0 0 / 4%);
+    .layout-main-content {
+      box-sizing: border-box;
+      height: 100%;
+      overflow: scroll;
     }
 
-    .layout-content-main {
-      padding: 8px;
-      overflow-y: scroll;
-      scroll-behavior: smooth;
-    }
+    .layout-main-content {
+      /* 设置滚动条的样式 */
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+      }
 
-    /* 设置滚动条的样式 */
-    .layout-content-main::-webkit-scrollbar {
-      display: none;
+      /* 滚动槽 */
+      &::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px #a8abb2;
+      }
+
+      /* 滚动条滑块 */
+      &::-webkit-scrollbar-thumb {
+        height: 10px;
+        background: rgb(0 0 0 / 10%);
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgb(47 48 52 / 20%);
+      }
+
+      &::-webkit-scrollbar-thumb:window-inactive {
+        background-color: rgb(47 48 52 / 20%);
+      }
     }
   }
 }

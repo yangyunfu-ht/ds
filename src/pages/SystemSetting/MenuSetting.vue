@@ -43,11 +43,11 @@
 
     <el-card style="margin-top: 20px">
       <el-row>
-        <DsButton type="primary" icon="Plus" @click="handleClick"
-          >新增</DsButton
+        <el-button type="primary" icon="Plus" @click="handleClick"
+          >新增</el-button
         >
-        <DsButton type="warning" icon="Edit">修改</DsButton>
-        <DsButton type="danger" icon="Delete">删除</DsButton>
+        <el-button type="warning" icon="Edit">修改</el-button>
+        <el-button type="danger" icon="Delete">删除</el-button>
       </el-row>
 
       <el-table
@@ -92,7 +92,6 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import DsButton from '@/components/DsButton.vue'
 
 const value1 = ref<[Date, Date]>([
   new Date(2024, 3, 10, 12, 12, 12),

@@ -1,186 +1,154 @@
 <template>
-  <div class="layout-tab">
-    <div class="left-tab">
-      <div
-        class="left-arrow-tab tab"
-        style="padding: 0 12px; margin-right: 5px"
-        @click="previous"
-      >
-        <el-icon>
-          <ArrowLeft />
-        </el-icon>
-      </div>
-    </div>
-    <section class="middle-tab" ref="tabWrapper" @scroll="scroll">
-      <div
-        class="tab"
-        v-for="({ name, path }, index) of tabs"
-        :key="index"
-        :class="{ activeTab: route.path === path }"
-      >
-        <div
-          class="center"
-          style="margin-right: 8px"
-          @click="router.push(path)"
-        >
-          {{ name }}
-        </div>
-        <div class="center close" @click="useTabsStore.removeTab(path)">
-          <el-icon :size="12">
-            <Close />
-          </el-icon>
-        </div>
-      </div>
-    </section>
-    <div class="right-tab">
-      <div
-        class="right-arrow-tab tab"
-        style="padding: 0 12px; margin-left: 5px"
-        @click="next"
-      >
-        <el-icon>
-          <ArrowRight />
-        </el-icon>
-      </div>
-      <div
-        class="refresh-tab tab"
-        style="padding: 0 20px; margin-right: 0"
-        @click="refresh"
-      >
-        <el-tooltip
-          class="box-item"
-          effect="dark"
-          content="刷新当前页"
-          placement="bottom"
-        >
-          <el-icon>
-            <Refresh />
-          </el-icon>
-        </el-tooltip>
-      </div>
-    </div>
-  </div>
+  <ul class="tabs border" :style="{ width: tabWidth }">
+    <li class="tab" @click="router.push('/')">
+      <img class="logo" src="/logo.jpg" :style="{ width: tabWidth }" alt="" />
+    </li>
+    <li
+      v-for="({ icon, label }, index) in tabs"
+      :key="index"
+      class="tab"
+      @click="(e: MouseEvent) => handleChangeTab(e, index)"
+    >
+      <render-icon :icon="icon" :size="22" />
+      {{ label }}
+    </li>
+    <div
+      class="tab-line"
+      :style="{ height: tabHeight, transform: `translateY(${translateY})` }"
+    ></div>
+  </ul>
 </template>
 
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
-import { ref, watch } from 'vue'
-import { useTabs } from '@/store/useTabs'
-import { storeToRefs } from 'pinia'
-
-const useTabsStore = useTabs()
-const { tabs } = storeToRefs(useTabsStore)
-
-const route = useRoute()
-watch(
-  route,
-  newRoute => {
-    const { name, path } = newRoute
-    useTabsStore.addTab(name as string, path)
-  },
-  {
-    immediate: true,
-  }
-)
+import { toRefs, computed, ref } from 'vue'
+import RenderIcon from '@/components/RenderIcon'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const tabWrapper = ref<HTMLDivElement | null>(null)
 
-const refresh = () => router.go(0)
-const previous = () =>
-  ((
-    document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
-  ).scrollLeft =
-    (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
-      .scrollLeft - 88)
-
-const next = () =>
-  ((
-    document.getElementsByClassName('middle-tab')[0] as HTMLDivElement
-  ).scrollLeft =
-    (document.getElementsByClassName('middle-tab')[0] as HTMLDivElement)
-      .scrollLeft + 99)
-
-const scroll = (e: UIEvent) => {
-  console.log((e.target as HTMLDivElement).scrollLeft)
+interface Tab {
+  label: string
+  icon: string
 }
+interface Props {
+  tabs?: Array<Tab>
+  width?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  tabs: () => [
+    {
+      icon: 'Grid',
+      label: '运营',
+    },
+    {
+      icon: 'ChatLineSquare',
+      label: '财务',
+    },
+    {
+      icon: 'Operation',
+      label: '品控',
+    },
+    {
+      icon: 'HelpFilled',
+      label: '报表',
+    },
+    {
+      icon: 'Van',
+      label: '车辆',
+    },
+    {
+      icon: 'Histogram',
+      label: '账户',
+    },
+    {
+      icon: 'Setting',
+      label: '系统',
+    },
+  ],
+  width: 70,
+})
+
+const { tabs, width } = toRefs(props)
+
+const scrollY = ref<number>(0)
+const currentTab = ref<number>(0)
+const activeTabHeight = ref<number>(0)
+
+const emits = defineEmits<{
+  (e: 'change', value: number, tab: Tab): void
+}>()
+
+const handleChangeTab = (e: MouseEvent, index: number) => {
+  currentTab.value = index
+  scrollY.value = (e.target as HTMLDivElement).offsetTop
+  activeTabHeight.value = (
+    e.target as HTMLDivElement
+  ).getBoundingClientRect().height
+  emits('change', currentTab.value, tabs.value[currentTab.value])
+}
+
+const translateY = computed(() => {
+  return scrollY.value + 'px'
+})
+
+const tabHeight = computed(() => {
+  return activeTabHeight.value + 'px'
+})
+
+const tabWidth = computed(() => {
+  return width.value + 'px'
+})
 </script>
 
 <style lang="scss" scoped>
-.layout-tab {
-  box-sizing: border-box;
-  display: flex;
-  padding: 4px 0;
-  overflow-x: scroll;
+.tabs {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
   scrollbar-width: none;
 
   .tab {
     box-sizing: border-box;
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    margin-right: 10px;
-    font-size: 13px;
-    color: #606266;
-    white-space: nowrap;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: var(--el-menu-item-font-size);
+    list-style: none;
     cursor: pointer;
-    background-color: #f5f7fa;
-    border-radius: 4px;
+
+    .el-icon {
+      padding-bottom: 12px;
+      pointer-events: none;
+    }
   }
 
-  .tab:hover {
-    background-color: #ebeef5;
-    transition: all 0.1s ease-in-out;
-    transform: scale(1.01);
-  }
-
-  .activeTab {
+  .tab:not(:first-child):hover {
     color: var(--el-menu-active-color);
-    // border-radius: 0;
-    // border-top-left-radius: 4px;
-    // border-top-right-radius: 4px;
+    background-color: var(--el-menu-hover-bg-color);
   }
 
-  .main-tab {
-    padding: 8px 24px;
-    margin-right: 0;
-    background-color: #ebeef5;
-  }
+  // .tab:hover {
+  //   color: var(--el-menu-active-color);
+  //   background-color: var(--el-menu-hover-bg-color);
+  // }
 
-  .left-tab {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .middle-tab {
-    display: flex;
-    flex: 1;
-    overflow-x: scroll;
-    cursor: pointer;
-    transition: all 2s ease-in-out;
-  }
-
-  .middle-tab::-webkit-scrollbar {
-    display: none;
-  }
-
-  .right-tab {
-    display: flex;
-    justify-content: space-around;
+  .tab-line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    background-color: var(--el-menu-active-color);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 }
 
-.layout-tab::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.border {
+  border-right: 2px solid #f5f5f5;
 }
 </style>

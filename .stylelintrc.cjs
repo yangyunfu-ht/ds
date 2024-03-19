@@ -28,5 +28,6 @@ module.exports = {
       },
     ],
     'selector-class-pattern': null,
+    'no-duplicate-selectors': null,
   },
 }

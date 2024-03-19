@@ -9,13 +9,13 @@ export interface MenuItem {
 }
 
 const routes: Array<MenuItem> = [
-  {
-    path: '/',
-    name: '主页',
-    meta: {
-      icon: 'House',
-    },
-  },
+  // {
+  //   path: '/',
+  //   name: '主页',
+  //   meta: {
+  //     icon: 'House',
+  //   },
+  // },
   {
     path: '/1',
     name: '菜单一',
